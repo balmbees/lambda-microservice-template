@@ -26,6 +26,7 @@ export interface Context<T> {
     logStreamName: string;
     identity?: CognitoIdentity;
     clientContext?: ClientContext;
+    callbackWaitsForEmptyEventLoop?: boolean;
 
     // Functions
     succeed(result?: T): void;
