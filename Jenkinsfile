@@ -6,8 +6,8 @@ node(label: 'Small') {
     step([$class: 'GitHubSetCommitStatusBuilder'])
 
     withDockerRegistry(registry: [credentialsId: 'docker-hub', url: 'https://index.docker.io/v1/']) {
-      docker.image('vingle/lambda-microservice-template').pull()
-      withDockerContainer([image: 'vingle/lambda-microservice-template']) {
+      docker.image('vingle/lambda-microservice-template:8.10').pull()
+      withDockerContainer([image: 'vingle/lambda-microservice-template:8.10']) {
         stage('Checkout SCM') {
           checkout scm
         }
