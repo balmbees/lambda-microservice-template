@@ -1,14 +1,17 @@
-## BACKEND-STORY_ID One-sentence summary of changes
+## one sentence summary of changes
 
 #### Is it a breaking change?: NO / YES
 
-### Why did you make these changes?
 
-Service `X` requires `Y` field from response entity of `Z` API call.
+### **Why** did you make these changes?
 
-### What's changed in these changes?
+ex) I need to access `X` filed from api
 
-I added `X` field to `Y` entity.
+
+### **What** did you changed?
+
+ex) I added `X` field to `Y` entity.
+
 
 ### What do you especially want to get reviewed?
 
@@ -25,17 +28,7 @@ You should use `X` field instead of using `Y` field
 * [ ] New Feature
 * [ ] Refactor
 
-### All Submissions
 
-* [ ] Have you added an explanation of what your changes?
-* [ ] Have you written new tests for your changes, as applicable?
-* [ ] Have you checked potential side effects that could make bad impacts to other services?
+### Checklist
 
-
-### New Features
-
-* [ ] Have you configured CI/CD properly?
-* [ ] Have you configured optimal memory size and timeouts of Lambda Function?
-* [ ] Have you grant required permissions (e.g. IAM Policy, VPC Security Group)?
-* [ ] Have you made required resources (e.g. DynamoDB Table, RDS Cluster)?
-* [ ] Does it requires native addons dependency?
+* [ ] test for core logics?
