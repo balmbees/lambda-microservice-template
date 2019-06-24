@@ -30,7 +30,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/chai": "4.1.7",
-    "@types/lodash": "4.14.119",
+    "@types/lodash": "4.14.134",
     "@types/mocha": "5.2.5",
     "@types/node": "8.10.39",
     "@vingle/serverless-tag-plugin": "1.1.2",
