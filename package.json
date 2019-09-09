@@ -36,7 +36,6 @@
     "@vingle/tslint-preset": "1.0.0",
     "chai": "4.2.0",
     "check-engine": "1.8.1",
-    "local-dynamo": "0.5.0",
     "mocha": "6.2.0",
     "serverless": "1.51.0",
     "serverless-prune-plugin": "1.4.1",
