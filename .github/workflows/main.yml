@@ -1,0 +1,58 @@
+name: CI
+on: push
+jobs:
+  job:
+    runs-on: ubuntu-latest
+    container: vingle/lambda-microservice-template:nodejs8.10
+    timeout-minutes: 15
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ROOT_PASSWORD: root-password
+          MYSQL_DATABASE: vingle
+          MYSQL_USER: vingle
+          MYSQL_PASSWORD: vingle
+        options: >-
+          --health-cmd "mysqladmin ping -h 127.0.0.1" --health-interval 10s --health-timeout 5s --health-retries 5
+      postgres:
+        image: postgres:9.4
+        env:
+          POSTGRES_PASSWORD: vingle
+        options: >-
+          --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+      dynamodb:
+        image: amazon/dynamodb-local
+        # @note Github overwrites WORKDIR to repository path, so overwrite that again
+        options: >-
+          --workdir /home/dynamodblocal
+          --health-cmd "curl --fail http://127.0.0.1:8000/shell/ || exit 1" --health-interval 10s --health-timeout 5s --health-retries 5
+      redis:
+        image: redis
+        options: >-
+          --health-cmd "redis-cli ping" --health-interval 10s --health-timeout 5s --health-retries 5
+    steps:
+      - uses: actions/checkout@v1
+      - name: Prepare
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+          npm ci
+      - name: Lint
+        run: npm run lint
+      - name: Test
+        run: npm test
+        env:
+          MYSQL_URL: mysql://vingle:vingle@mysql:3306/vingle
+          POSTGRES_URL: postgres://postgres:vingle@postgres:5432/postgres
+          DYNAMO_TYPES_ENDPOINT: http://dynamodb:8000
+          REDIS_URL: redis://redis:6379/10
+      - name: Deploy
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        run: npm run deploy:prod
+        env:
+          AWS_DEFAULT_REGION: us-east-1
+          AWS_REGION: us-east-1
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
