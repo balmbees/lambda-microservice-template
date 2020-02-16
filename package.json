@@ -29,7 +29,7 @@
   "author": "Kurt Lee",
   "license": "ISC",
   "devDependencies": {
-    "@types/chai": "4.2.8",
+    "@types/chai": "4.2.9",
     "@types/mocha": "5.2.7",
     "@types/node": "8.10.59",
     "@vingle/serverless-tag-plugin": "1.1.3",
