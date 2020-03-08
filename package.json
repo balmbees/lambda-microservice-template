@@ -40,6 +40,6 @@
     "serverless": "1.65.0",
     "serverless-prune-plugin": "1.4.2",
     "tslint": "5.20.1",
-    "typescript": "3.7.5"
+    "typescript": "3.8.3"
   }
 }
