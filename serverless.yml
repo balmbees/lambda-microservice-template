@@ -2,8 +2,9 @@ service: microservice-template
 
 provider:
   name: aws
-  stage: prod
   runtime: nodejs12.x
+  stage: ${opt:stage, 'stage'}
+  logRetentionInDays: 30
 
 plugins:
   - serverless-prune-plugin
