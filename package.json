@@ -23,7 +23,7 @@
     "info:prod": "sls info -s prod"
   },
   "engines": {
-    "node": "^8.10.0",
+    "node": "^12.0.0",
     "npm": "^6.10.2"
   },
   "author": "Kurt Lee",
