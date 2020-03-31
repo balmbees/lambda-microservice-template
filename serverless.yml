@@ -2,8 +2,8 @@ service: microservice-template
 
 provider:
   name: aws
-  runtime: nodejs8.10
   stage: prod
+  runtime: nodejs12.x
 
 plugins:
   - serverless-prune-plugin
