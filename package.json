@@ -38,7 +38,7 @@
     "check-engine": "1.8.1",
     "mocha": "6.2.3",
     "serverless": "1.71.3",
-    "serverless-prune-plugin": "1.4.2",
+    "serverless-prune-plugin": "1.4.3",
     "tslint": "6.1.1",
     "typescript": "3.8.3"
   }
