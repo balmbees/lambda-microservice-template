@@ -34,7 +34,7 @@
     "@types/node": "8.10.59",
     "@vingle/serverless-tag-plugin": "1.1.3",
     "@vingle/tslint-preset": "1.0.1",
-    "chai": "4.3.3",
+    "chai": "4.3.4",
     "check-engine": "1.10.0",
     "mocha": "6.2.3",
     "serverless": "1.83.2",
